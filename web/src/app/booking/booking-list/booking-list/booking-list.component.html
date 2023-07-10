@@ -1,0 +1,49 @@
+<mat-toolbar><h1>Lista de reservas</h1></mat-toolbar>
+
+<ng-template #carregando>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+<div class="componente-container">
+  <div *ngIf="bookings$ | async as bookings; else carregando">
+    <table mat-table [dataSource]="bookings">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>ID do hospede</th>
+        <! trocar por nome ->
+        <td mat-cell *matCellDef="let booking">{{ booking.guestId }}</td>
+      </ng-container>
+      <ng-container matColumnDef="document">
+        <th mat-header-cell *matHeaderCellDef>Data Checkin</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.checkInDate }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Data Checkout</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.checkOutDate }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Verificação Checkout</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.hasCheckIn }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Verificação Checkout</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.hasCheckOut }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Possuí veículo</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.hasVehicle }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Valor inicial</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.initialValue }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Valor final</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.finalValue }}</td>
+      </ng-container>
+    </table>
+  </div>
+</div>
