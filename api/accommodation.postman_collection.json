@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "f229c927-e328-47cb-86ad-5a8a11730aa3",
+		"name": "accommodation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2126528"
+	},
+	"item": [
+		{
+			"name": "recuperar todos os hospedes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/guest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"guest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recuperar hospedes por nome,documento e telefone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/guest/filter?name=Thiago&document=12345678999&phone=81997567790",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"guest",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Thiago"
+						},
+						{
+							"key": "document",
+							"value": "12345678999"
+						},
+						{
+							"key": "phone",
+							"value": "81997567790"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recuperar todas as reservas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrar hospede",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Yugi\",\r\n    \"document\" : \"12345678999\",\r\n    \"phone\" : \"81997567790\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/guest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"guest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrar reserva",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"checkInDate\" : \"2023-07-09 22:59:01\",\r\n    \"checkOutDate\" : \"2023-07-16 22:59:01\",\r\n    \"hasVehicle\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/booking/guest/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"guest",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fazer checkin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/booking/1/checkin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"1",
+						"checkin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fazer checkout",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/booking/2/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"2",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recuperar reservas sem checkout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/booking/without-checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"without-checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recuperar reservas sem checkin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/booking/without-checkin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"without-checkin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
